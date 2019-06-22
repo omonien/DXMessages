@@ -83,5 +83,6 @@ end;
 initialization
 
 TDUnitX.RegisterTestFixture(TTestDialogListenerFMX);
+TDUnitX.RegisterTestFixture(TTestDialogListenerVCL);
 
 end.

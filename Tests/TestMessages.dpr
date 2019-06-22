@@ -3,23 +3,23 @@ program TestMessages;
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
 {$ENDIF}{$STRONGLINKTYPES ON}
-//FMX and VCL is mixed on purpos, which will hints about resource dupes
+//FMX and VCL is mixed on purpose, which will hints about resource dupes
 {$HINTS off}
 uses
   System.SysUtils,
-{$IFDEF TESTINSIGHT}
+  {$IFDEF TESTINSIGHT}
   TestInsight.DUnitX,
-{$ENDIF }
+  {$ENDIF }
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
   Tests.DialogListener in 'Tests.DialogListener.pas',
-  DX.Messages.Dialog in 'DX.Messages.Dialog.pas',
-  DX.Messages.Dialog.UITypesHelper in 'DX.Messages.Dialog.UITypesHelper.pas',
-  DX.Messages.Dialog.Listener in 'DX.Messages.Dialog.Listener.pas',
-  DX.Messages.Dialog.Types in 'DX.Messages.Dialog.Types.pas',
-  DX.Messages.Dialog.Listener.FMX in 'DX.Messages.Dialog.Listener.FMX.pas',
-  DX.Messages.Dialog.Listener.VCL in 'DX.Messages.Dialog.Listener.VCL.pas';
+  DX.Messages.Dialog.UITypesHelper in '..\DX.Messages.Dialog.UITypesHelper.pas',
+  DX.Messages.Dialog.Listener.FMX in '..\DX.Messages.Dialog.Listener.FMX.pas',
+  DX.Messages.Dialog.Listener in '..\DX.Messages.Dialog.Listener.pas',
+  DX.Messages.Dialog.Listener.VCL in '..\DX.Messages.Dialog.Listener.VCL.pas',
+  DX.Messages.Dialog in '..\DX.Messages.Dialog.pas',
+  DX.Messages.Dialog.Types in '..\DX.Messages.Dialog.Types.pas';
 
 var
   runner: ITestRunner;

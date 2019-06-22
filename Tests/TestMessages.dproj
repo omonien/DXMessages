@@ -75,14 +75,12 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="Tests.DialogListener.pas"/>
-        <DCCReference Include="DX.Messages.Dialog.pas"/>
-        <DCCReference Include="DX.Messages.Dialog.UITypesHelper.pas"/>
-        <DCCReference Include="DX.Messages.Dialog.Listener.pas"/>
-        <DCCReference Include="DX.Messages.Dialog.Types.pas">
-            <Form>$HINTS off</Form>
-        </DCCReference>
-        <DCCReference Include="DX.Messages.Dialog.Listener.FMX.pas"/>
-        <DCCReference Include="DX.Messages.Dialog.Listener.VCL.pas"/>
+        <DCCReference Include="..\DX.Messages.Dialog.UITypesHelper.pas"/>
+        <DCCReference Include="..\DX.Messages.Dialog.Listener.FMX.pas"/>
+        <DCCReference Include="..\DX.Messages.Dialog.Listener.pas"/>
+        <DCCReference Include="..\DX.Messages.Dialog.Listener.VCL.pas"/>
+        <DCCReference Include="..\DX.Messages.Dialog.pas"/>
+        <DCCReference Include="..\DX.Messages.Dialog.Types.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
