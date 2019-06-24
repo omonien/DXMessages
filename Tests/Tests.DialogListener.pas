@@ -11,6 +11,9 @@ type
   public
     [TEST]
     procedure TestDialog; virtual;
+    [TEST]
+    procedure TestDialogCallback; virtual;
+
   end;
 
   [TestFixture]
@@ -73,11 +76,28 @@ var
   LMessage: TMessageDialogRequest;
   LResult: TDialogOption;
 begin
-  LMessage := TMessageDialogRequest.Create([TDialogOption.OK, TDialogOption.cancel], TDialogOption.cancel);
-  LMessage.Message := 'Test: Press OK';
+  LMessage := TMessageDialogRequest.Create('Test: Press OK', [TDialogOption.OK, TDialogOption.cancel]);
+  LMessage.Default := TDialogOption.Cancel;
   TMessageManager.DefaultManager.SendMessage(self, LMessage);
   LResult := LMessage.Response;
-  Assert.IsTrue(LResult = TDialogOption.Ok);
+  Assert.IsTrue(LResult = TDialogOption.OK);
+end;
+
+procedure TTestDialogListenerBase.TestDialogCallback;
+var
+  LMessage: TMessageDialogRequest;
+  LResult: TDialogOption;
+begin
+  LMessage := TMessageDialogRequest.Create('Test: Press OK', [TDialogOption.OK, TDialogOption.cancel]);
+  LMessage.Default := TDialogOption.Cancel;
+  //This is only suitable for synchronous message handling.
+  //Tessing async messages, requires some sort of a busy loop here
+  TMessageManager.DefaultManager.SendMessage(self, LMessage.OnResult(
+    procedure(AResult: TDialogOption)
+    begin
+      LResult := LMessage.Response;
+      Assert.IsTrue(LResult = TDialogOption.OK);
+    end));
 end;
 
 initialization

@@ -44,7 +44,9 @@ begin
     OK:
       result := TMsgDlgBtn.mbOK;
     Cancel:
-      result := TMsgDlgBtn.mbCancel
+      result := TMsgDlgBtn.mbCancel;
+    Close:
+      result := TMsgDlgBtn.mbClose
   else
     raise Exception.Create('Unknown Dialog Option');
   end;
